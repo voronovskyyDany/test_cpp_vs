@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 using namespace std;
 
 class Point {
@@ -20,15 +21,10 @@ public:
 	int get_y() {
 		return y;
 	}
-	void set_x() {
-		cin >> x;
-	}
-	void set_y() {
-		cin >> y;
-	}
 };
 
 class Figure {
+protected:
 	vector<Point> polygons;
 public:
 	Figure(int size) {
@@ -41,7 +37,55 @@ public:
 			polygons.push_back(Point(x, y));
 		}
 	}
-	void print() {
+	virtual void print() = 0;
+};
+
+class point : public Figure {
+public:
+	point() : Figure(1) {
+		cout << "Point\n" << string(10, '-') << "\n";
+	}
+	void print() override {
+		cout << "Point:\n";
+		for (auto it = polygons.begin(); it != polygons.end(); it++) {
+			cout << "X " << it->get_x() << " : " << "Y " << it->get_y() << "\n";
+		}
+	}
+};
+
+class line : public Figure {
+public:
+	line() : Figure(2) {
+		cout << "Line\n" << string(10, '-') << "\n";
+	}
+	void print() override {
+		cout << "Line:\n";
+		for (auto it = polygons.begin(); it != polygons.end(); it++) {
+			cout << "X " << it->get_x() << " : " << "Y " << it->get_y() << "\n";
+		}
+	}
+};
+
+class triangle : public Figure {
+public:
+	triangle() : Figure(3) {
+		cout << "Triangle\n" << string(10, '-') << "\n";;
+	}
+	void print() override {
+		cout << "Triangle:\n";
+		for (auto it = polygons.begin(); it != polygons.end(); it++) {
+			cout << "X " << it->get_x() << " : " << "Y " << it->get_y() << "\n";
+		}
+	}
+};
+
+class quadrilateral : public Figure {
+public:
+	quadrilateral() : Figure(4) {
+		cout << "Quadrilateral\n" << string(10, '-') << "\n";;
+	}
+	void print() override {
+		cout << "Quadrilateral:\n";
 		for (auto it = polygons.begin(); it != polygons.end(); it++) {
 			cout << "X " << it->get_x() << " : " << "Y " << it->get_y() << "\n";
 		}
@@ -49,15 +93,14 @@ public:
 };
 
 int main() {
-	Figure p(1);
-	Figure l(2);
-	Figure t(3);
-	cout << "Point:\n";
+	point p;
+	line l;
+	triangle t;
+	quadrilateral q;
 	p.print();
-	cout << "Line:\n";
-	l.print(); 
-	cout << "Triangle:\n";
+	l.print();
 	t.print();
+	q.print();
 
 	return 0;
 }
