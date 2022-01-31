@@ -49,6 +49,15 @@ public:
 };
 
 int main() {
+	Figure p(1);
+	Figure l(2);
+	Figure t(3);
+	cout << "Point:\n";
+	p.print();
+	cout << "Line:\n";
+	l.print(); 
+	cout << "Triangle:\n";
+	t.print();
 
 	return 0;
 }
