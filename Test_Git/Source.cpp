@@ -15,11 +15,8 @@ public:
 		x = 0;
 		y = 0;
 	}
-	int get_x() {
-		return x;
-	}
-	int get_y() {
-		return y;
+	void print() {
+		cout << "X " << x << " : " << "Y " << y << "\n";
 	}
 };
 
@@ -48,7 +45,7 @@ public:
 	void print() override {
 		cout << "Point:\n";
 		for (auto it = polygons.begin(); it != polygons.end(); it++) {
-			cout << "X " << it->get_x() << " : " << "Y " << it->get_y() << "\n";
+			it->print();
 		}
 	}
 };
@@ -61,7 +58,7 @@ public:
 	void print() override {
 		cout << "Line:\n";
 		for (auto it = polygons.begin(); it != polygons.end(); it++) {
-			cout << "X " << it->get_x() << " : " << "Y " << it->get_y() << "\n";
+			it->print();
 		}
 	}
 };
@@ -74,7 +71,7 @@ public:
 	void print() override {
 		cout << "Triangle:\n";
 		for (auto it = polygons.begin(); it != polygons.end(); it++) {
-			cout << "X " << it->get_x() << " : " << "Y " << it->get_y() << "\n";
+			it->print();
 		}
 	}
 };
@@ -87,7 +84,7 @@ public:
 	void print() override {
 		cout << "Quadrilateral:\n";
 		for (auto it = polygons.begin(); it != polygons.end(); it++) {
-			cout << "X " << it->get_x() << " : " << "Y " << it->get_y() << "\n";
+			it->print();
 		}
 	}
 };
